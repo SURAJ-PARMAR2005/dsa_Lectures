@@ -39,3 +39,23 @@
 //above is brute force from recursion and it has bad space complexity
 
 //now optimised solution of
+
+
+#include<iostream>
+using namespace std;
+
+void removeChar(string ans, string original,int idx){
+    if(idx == original.length()){
+        cout<<ans;
+        return;
+    }
+    char ch = original[idx];
+    if(ch == 'a') removeChar(ans,original,idx+1);
+    else removeChar(ans + ch,original,idx+1);
+}
+
+
+int main() {
+string str = "suraj parmar";
+removeChar("",str,0);
+}
