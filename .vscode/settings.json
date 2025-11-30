@@ -8,6 +8,7 @@
         "vector": "cpp",
         "algorithm": "cpp",
         "string": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "deque": "cpp"
     }
 }
