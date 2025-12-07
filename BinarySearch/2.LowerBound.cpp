@@ -22,8 +22,7 @@ int main() {
         else hi = mid -1;
     }
     if(flag == false) {
-    cout<<arr[hi]<<endl;
-    }
+    cout<<arr[hi]<<endl;}
     //for upper bound print lo
     
 }
