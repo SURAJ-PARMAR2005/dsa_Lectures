@@ -1,15 +1,18 @@
 #include<iostream>
+#include<vector>
+#include<algorithm>
 #include<math.h>
 using namespace std;
 int main() {
-    int n;
-    cout<<"n: ";
-    cin>>n;
 
-   float x = log10(n)/log10(3);
-   cout<<x;
-    if(x == int(x)) cout<<true;
-    else cout<<false;
-
+    vector <string> str = {"abc","cae","cbe"};
+    for(int i  = 0;i<3;i++){
+        cout<<str[i]<<" ";
+    }
+    cout<<endl;
+    sort(str.begin(),str.end());
+     for(int i  = 0;i<3;i++){
+        cout<<str[i]<<" ";
+    }
 
 }
