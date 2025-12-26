@@ -48,3 +48,5 @@ int main() {
 
 }
        
+
+       //space complexity is O(1);
