@@ -7,7 +7,7 @@ int main() {
     vector<int> v(n,0);
     int x = 0;
     for(int i = 0;i<n;i++){
-        int min = INT8_MIN;
+        int min = INT8_MAX;
         int mindex = -1;
         for(int j = 0;j<n;j++){
             if(v[j] == 1) continue;
