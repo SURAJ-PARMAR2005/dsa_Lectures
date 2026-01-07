@@ -22,7 +22,5 @@ int main() {
         v[mindex] = 1;
         x++;
     }
-    for(int i = 0;i<n;i++){
-        cout<<arr[i]<<endl;
-    }
+   
 }
