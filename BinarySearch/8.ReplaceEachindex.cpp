@@ -40,7 +40,16 @@ int main() {
     }
 
     if(flag == false) cout<<-1;
+    else if(kmin == kmax){
+        if(kmin - (int)kmin == 0){
+            cout<<"there is only one value of K: "<<kmin;
+        }
+        else cout<<-1;
+    }
     else{
+        if(kmin - (int)kmin > 0){
+            kmin = (int)kmin +1;
+        }
         cout<<"Range of k is :["<<kmin<<","<<(int)kmax<<"]";
     }
 
