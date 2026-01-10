@@ -18,18 +18,38 @@ void merge(vector<int> &a, vector<int> &b, vector<int> &res){
     }
     if(j == b.size()) while(i<a.size()) res[k++] = a[i++];
 }
+
+void mergeSort(vector<int> &v){
+    int n  = v.size();
+    if(n == 1) return;
+    int n1 = n/2,n2 = n - n/2;
+    vector<int> a(n1),b(n2);
+    //copy pasting the arrays elements
+    for(int i  = 0;i<n1;i++){
+        a[i] = v[i];
+    }
+
+    for(int i  = 0;i<n2;i++){
+        b[i] = v[i+n1];
+    }
+
+    //time to do the magic aka recursion
+    mergeSort(a);
+    mergeSort(b);
+//merging 
+    merge(a,b,v);
+}
+
 int main() {
-    int arr[] = {1,4,5,8};
-    int n1 = sizeof(arr)/sizeof(arr[0]);
-    vector<int> a(arr,arr+n1); 
-    int brr[] = {2,3,6,7,10,12};
-    int n2 = sizeof(brr)/sizeof(brr[0]);
-    vector<int> b(brr,brr+n2); 
-    vector<int> res(n1+n2);
-
-   merge(a,b,res);
-
-   for(int i = 0;i<res.size();i++){
-        cout<<res[i]<<" ";
-   }
+    int arr[] = {5,1,3,0,9,6};
+    int n1  = sizeof(arr)/sizeof(arr[0]);
+    vector<int> v(arr,arr+n1);
+    for(int ele : v){
+        cout<<ele<<" ";
+    }
+    mergeSort(v);
+    cout<<endl;
+    for(int ele : v){
+        cout<<ele<<" ";
+    }
 }
