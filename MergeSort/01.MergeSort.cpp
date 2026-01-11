@@ -52,4 +52,9 @@ int main() {
     for(int ele : v){
         cout<<ele<<" ";
     }
-}
+}   
+
+
+//time complexity
+//o(n) will be taken to copy paste all the elements to new two ARRAYS 
+//n time will again will be taken by merging 
