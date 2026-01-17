@@ -36,7 +36,8 @@ int inversion(vector<int> &a,vector<int> &b){
     return count;
 }
 
-void mergeSort(vector<int> &v){
+int mergeSort(vector<int> &v){
+    int count = 0;
     int n  = v.size();
     if(n == 1) return;
     int n1 = n/2,n2 = n - n/2;
@@ -50,8 +51,8 @@ void mergeSort(vector<int> &v){
         b[i] = v[i+n1];
     }
      //time to do the magic aka recursion
-    mergeSort(a);
-    mergeSort(b);
+    count += mergeSort(a);
+    count += mergeSort(b);
 
     //count the inversion
     c += inversion(a,b);
