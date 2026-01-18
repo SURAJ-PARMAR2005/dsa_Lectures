@@ -3,7 +3,7 @@ using namespace std;
 void quickSort(int arr[],int si,int ei){
     //5,1,8,2,7,6,3,4
     int pivotIdx = partition(arr,si,ei);
-    //4,1,3,2,5,7,8,6
+    //4,1,3,2,5,7,8,6      
 
 }
 int main() {
