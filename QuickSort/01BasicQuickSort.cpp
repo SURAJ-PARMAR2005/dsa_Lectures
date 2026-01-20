@@ -33,7 +33,7 @@ void quickSort(int arr[],int si,int ei){
     //4,1,3,2,5,7,8,6      
     quickSort(arr,si,patIdx-1);
     quickSort(arr,patIdx+1,ei);
-}
+}    
 int main() {
     int arr[] = {5,1,8,2,7,6,3,4};
     int n = sizeof(arr)/sizeof(arr[0]);
