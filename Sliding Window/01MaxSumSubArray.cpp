@@ -36,6 +36,7 @@ int main() {
         prevSum = currSum;
     }
 
+    //tc: o(n)
     cout<<maxSum<<endl;
     cout<<maxIdx<<endl;
 
