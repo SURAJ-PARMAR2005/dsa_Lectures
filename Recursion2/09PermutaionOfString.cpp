@@ -16,5 +16,6 @@ int main() {
     string str;
     cin>>str;
     int n = str.length();
+    // cout<<str.substr(1);
     permutation(str,"");
 }
