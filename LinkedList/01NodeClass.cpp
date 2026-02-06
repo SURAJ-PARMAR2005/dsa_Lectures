@@ -23,10 +23,18 @@ int main(){
     b.next = &c;
     c.next = &d;
     d.next = NULL;
-    a.next -> val = 60;
+    // a.next -> val = 60;
     // cout<<(a.next)->val;
     // cout<<(b.next)->val;
 
     //a se d ki value kese print kraye
-    cout<<((a.next)->next)->val;
+    // cout<<((a.next)->next)->val;
+    
+    Node temp = a;//it have the content of node a but diff address of its own
+    while(1){
+        cout<<temp.val<<" ";
+        if(temp.next == NULL) break;
+        temp = *(temp.next);
+    }
+
 }
