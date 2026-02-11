@@ -6,10 +6,11 @@ class Node{ //userDefined Data type
     Node * next;
     Node(int val){
         this->val = val;
-        this->next = next;
+        this->next = NULL;
     }
 };
-class LinkedList{ //user Defined DataStructure
+class LinkedList{
+   public:  //user Defined DataStructure
     Node * head ;
     Node * tail ;
     int size;
@@ -19,14 +20,36 @@ class LinkedList{ //user Defined DataStructure
     }
 
     void insertAtEnd(int val){
-        
+        Node * temp = new Node(val);
+        if(size == 0){
+            head  = tail = temp;
+        }
+        else{
+            tail->next = temp;
+            tail = temp;
+        }
+        size++;
     }
+     void display() {
+            Node * temp = head;
+            while(temp!= NULL){
+                cout<<temp->val<<" ";
+                temp = temp->next;
+            }
+            cout<<endl;
+        }
 };
 int main() {
-    LinkedList ll = new LinkedList();//empty at first
+    LinkedList ll;//empty at first
 
     ll.insertAtEnd(10);//now it has value 10
+    ll.display();
+
     ll.insertAtEnd(20); // now it has value 10 , 20
 
     ll.display();
+    ll.insertAtEnd(30); // now it has value 10 , 20
+    ll.insertAtEnd(40); // now it has value 10 , 20
+    ll.display();
+    cout<<ll.size;
 }
