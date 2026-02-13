@@ -88,6 +88,61 @@ public: // user Defined DataStructure
             size++;
         }
     }
+    int getAtIdx(int idx){
+        if(idx < 0 || idx>=size) {
+            cout<<"Ivalid Idx";
+            return -1;
+        }
+        else if(idx == 0) return head->val;
+        else if(idx == size-1) return tail->val;
+        else{
+            Node * temp = head;
+          for(int i = 1;i<=idx;i++){
+            temp = temp->next;
+          }
+          return temp->val;
+
+        }
+
+    }
+
+
+    void deleteAthead(){
+        if(size == 0){
+            cout<<"List is Empty"<<endl;
+        }
+        head = head->next;
+        size--;
+    }
+    void deleteAtTail(){
+     if(size == 0){
+            cout<<"List is Empty"<<endl;
+        }
+        Node * temp = head;
+        while(temp ->next != tail){
+            temp = temp->next;
+        }
+        temp->next = NULL;
+        tail = temp;
+        size--;
+    }
+
+    void deleteAtIdx(int idx){
+        if(idx<0 || idx >=size){
+            cout<<"Invalid Idx";
+            return;
+        }
+        else if(idx == 0) return deleteAthead();
+        else if(idx == size-1) return deleteAtTail();
+        else{
+            Node * temp = head;
+            for(int i =1;i<idx;i++){
+                temp = temp->next;
+            }
+            temp->next = temp->next->next;
+            size--;
+        }
+    }
 };
 int main()
 {
@@ -106,5 +161,14 @@ int main()
     ll.insertAtHead(60);
     ll.insertAtIdx(4,70);
     ll.display();
-    cout << ll.size;
+    ll.deleteAthead();
+    ll.display();
+    // cout << ll.size<<endl;
+    // cout<<ll.getAtIdx(7);
+    ll.deleteAtTail();
+    ll.display();
+    ll.deleteAtIdx(3);
+    ll.display();
+
+ 
 }
