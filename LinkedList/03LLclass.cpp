@@ -168,7 +168,5 @@ int main()
     ll.deleteAtTail();
     ll.display();
     ll.deleteAtIdx(3);
-    ll.display();
-
- 
+    ll.display(); 
 }
