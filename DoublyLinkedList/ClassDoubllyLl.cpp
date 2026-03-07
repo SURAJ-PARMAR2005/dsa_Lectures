@@ -132,20 +132,22 @@ public: // user Defined DataStructure
         if(size == 0){
             cout<<"List is Empty"<<endl;
         }
+        else if(size == 1) {
+            deleteAthead();
+            return;
+        }
         head = head->next;
-        head->prev = NULL;
+        if(head) head->prev = NULL;
+        if(head == NULL) tail = NULL;
         size--;
     }
     void deleteAtTail(){
      if(size == 0){
             cout<<"List is Empty"<<endl;
         }
-        Node * temp = head;
-        while(temp ->next != tail){
-            temp = temp->next;
-        }
-        temp->next = NULL;
-        tail = temp;
+       Node * temp = tail->prev;
+       temp->next = NULL;
+       tail = temp;
         size--;
     }
 
@@ -162,6 +164,7 @@ public: // user Defined DataStructure
                 temp = temp->next;
             }
             temp->next = temp->next->next;
+            temp->next->prev = temp;
             size--;
         }
     }
