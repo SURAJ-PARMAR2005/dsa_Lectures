@@ -133,6 +133,7 @@ public: // user Defined DataStructure
             cout<<"List is Empty"<<endl;
         }
         head = head->next;
+        head->prev = NULL;
         size--;
     }
     void deleteAtTail(){
