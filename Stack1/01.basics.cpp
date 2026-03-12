@@ -22,7 +22,7 @@ int main() {
     
     while(temp.size() > 0){
         int x = temp.top();
-        cout<<x<<" ";
+        cout<<x<<""; 
         st.push(x);
         temp.pop(); 
     }
