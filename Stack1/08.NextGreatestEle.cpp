@@ -8,7 +8,7 @@ int main() {
         cout<<arr[i]<<" ";
     }
     cout<<endl;
-    int nge[n];
+    int nge[n]; 
     stack<int> st;
     nge[n-1] = -1;
     st.push(arr[n-1]);
