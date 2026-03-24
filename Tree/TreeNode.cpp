@@ -1,4 +1,5 @@
 #include <iostream>
+#include<algorithm>
 using namespace std;
 class Node
 {
@@ -21,6 +22,30 @@ void displayTree(Node *root)
     displayTree(root->right);
 }
 
+int sumTree(Node * root){
+    if(root == NULL){
+        return 0;
+    }
+ int ans = root->val + sumTree(root->left) + sumTree(root->right);
+    return ans;
+}
+
+int size(Node * root){
+    if(root == NULL) return 0;
+   
+    return 1 + size(root->left) + size(root->right);
+}
+
+int maxVal(Node* root){
+    if(root == NULL) return INT8_MIN;
+    return  max(root->val,max(maxVal(root->left),maxVal(root->right)));
+}
+
+int level(Node * root){
+    if(root == NULL) return 0;
+
+    return 1+ max(level(root->left),level(root->right));
+}
 
 int main()
 {
@@ -40,4 +65,14 @@ int main()
     c->right = g;
 
     displayTree(a);
+    cout<<endl;
+    cout<<sumTree(a);
+    cout<<endl;
+    cout<<size(a);
+    cout<<endl;
+    cout<<maxVal(a);
+    cout<<endl;
+    cout<<level(a);
+
+
 }
