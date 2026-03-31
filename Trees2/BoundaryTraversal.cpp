@@ -107,27 +107,84 @@ void levelOrder(Node * root){
 }
 
 
-int main()
-{
-    Node *a = new Node(1);
-    Node *b = new Node(2);
-    Node *c = new Node(3);
-    Node *d = new Node(4);
-    Node *e = new Node(5);
-    Node *f = new Node(6);
-    Node *g = new Node(7);
 
-    a->left = b;
-    a->right = c;
-    b->left = d;
-    b->right = e;
-    c->left = f;
-    c->right = g;
+Node * construct(vector<int> v){
+    int n = v.size();
+    queue<Node * > q;
+    Node * root = new Node(v[0]);
+    q.push(root);
+    int i = 1;
+    int j = 2;
+    while(q.size() > 0 && i<n){
+        Node * temp = q.front();
+        q.pop();
+        Node * l;
+        Node * r;
+        if(v[i] != INT8_MIN){
+            l = new Node (v[i]);
+        }
+        else {
+            l = NULL;
+        }
 
+        if(j != n && v[j] != INT8_MIN){
+            r = new Node (v[j]);
+        }
+        else {
+            r = NULL;
+        }
+        temp->left = l;
+        temp->right  = r;
+        if(l != NULL){
+            q.push(l);
+        }
+        if(r != NULL) q.push(r);
 
-    levelOrderQueue(a);
+        i+=2;
+        j += 2;   
+    }
+    return root;
+}
 
+void bottomBoundary(Node * root){
+    if(root == NULL) return;
+    if(root->left == NULL && root->right == NULL) {
+   cout<<root->val<<" ";
+    }
+   bottomBoundary(root->left);
+    bottomBoundary(root->right);
+}
 
+void rightBoundary(Node * root){
+    if(root == NULL) return;
+    if(root->left == NULL && root->right == NULL) return;
+   rightBoundary(root->right);
+   if(root->right == NULL)  rightBoundary(root->left);
+   cout<<root->val<<" ";
 
+}
+void leftBoundary(Node * root){
+    if(root == NULL) return;
+    if(root->left == NULL && root->right == NULL) return;
+   cout<<root->val<<" ";
+   leftBoundary(root->left);
+   if(root->left == NULL)  leftBoundary(root->right);
    
+}
+
+int main()
+{   
+    vector<int> v = {1,2,3,4,5,INT8_MIN,6,7,INT8_MIN,8,INT8_MIN,9,10,INT8_MIN,11,INT8_MIN,12,INT8_MIN,13,INT8_MIN,14,15,16,INT8_MIN,17,INT8_MIN,INT8_MIN,18,INT8_MIN,19,INT8_MIN,INT8_MIN,INT8_MIN,20,21,22,23,INT8_MIN,24,25,26,27,INT8_MIN,INT8_MIN,28,INT8_MIN,INT8_MIN};
+    // cout<<v.size();
+//construct;
+    Node * root = construct(v);
+
+
+    // levelOrder(root);
+    leftBoundary(root);
+    bottomBoundary(root);
+    rightBoundary(root->right);
+
+    // boundary(root);
+
 }

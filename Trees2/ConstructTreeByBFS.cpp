@@ -106,28 +106,49 @@ void levelOrder(Node * root){
     }
 }
 
+Node * construct(vector<int> v){
+    int n = v.size();
+    queue<Node * > q;
+    Node * root = new Node(v[0]);
+    q.push(root);
+    int i = 1;
+    int j = 2;
+    while(q.size() > 0 && i<n){
+        Node * temp = q.front();
+        q.pop();
+        Node * l;
+        Node * r;
+        if(v[i] != INT8_MIN){
+            l = new Node (v[i]);
+        }
+        else {
+            l = NULL;
+        }
+
+        if(j != n && v[j] != INT8_MIN){
+            r = new Node (v[j]);
+        }
+        else {
+            r = NULL;
+        }
+        temp->left = l;
+        temp->right  = r;
+        if(l != NULL){
+            q.push(l);
+        }
+        if(r != NULL) q.push(r);
+
+        i+=2;
+        j += 2;   
+    }
+    return root;
+}
 
 int main()
-{
-    Node *a = new Node(1);
-    Node *b = new Node(2);
-    Node *c = new Node(3);
-    Node *d = new Node(4);
-    Node *e = new Node(5);
-    Node *f = new Node(6);
-    Node *g = new Node(7);
-
-    a->left = b;
-    a->right = c;
-    b->left = d;
-    b->right = e;
-    c->left = f;
-    c->right = g;
-
-
-    levelOrderQueue(a);
-
-
-
+{   
+    vector<int> v = {1,2,3,4,5,INT8_MIN,6,INT8_MIN,INT8_MIN,7,8,9};
+//construct
+    Node * root = construct(v);
    
+    levelOrderQueue(root);
 }
