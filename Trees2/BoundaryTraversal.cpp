@@ -172,6 +172,13 @@ void leftBoundary(Node * root){
    
 }
 
+void boundary(Node * root){
+    leftBoundary(root);
+    bottomBoundary(root);
+    rightBoundary(root->right);
+
+}
+
 int main()
 {   
     vector<int> v = {1,2,3,4,5,INT8_MIN,6,7,INT8_MIN,8,INT8_MIN,9,10,INT8_MIN,11,INT8_MIN,12,INT8_MIN,13,INT8_MIN,14,15,16,INT8_MIN,17,INT8_MIN,INT8_MIN,18,INT8_MIN,19,INT8_MIN,INT8_MIN,INT8_MIN,20,21,22,23,INT8_MIN,24,25,26,27,INT8_MIN,INT8_MIN,28,INT8_MIN,INT8_MIN};
@@ -179,12 +186,8 @@ int main()
 //construct;
     Node * root = construct(v);
 
-
-    // levelOrder(root);
-    leftBoundary(root);
-    bottomBoundary(root);
-    rightBoundary(root->right);
-
+boundary(root);
+ 
     // boundary(root);
 
 }
