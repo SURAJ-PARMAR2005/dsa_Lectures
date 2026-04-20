@@ -12,7 +12,7 @@ bool canPlaceQueen(int row , int col,int n){
     }
         //left diagonal check        
     for(int i = row-1,j= col-1;i>=0 and j>=0;i--,j--){
-        if(grid[i][col] == 'Q') return false;
+        if(grid[i][j] == 'Q') return false;
     }
 
     //right diagonal check
