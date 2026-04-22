@@ -7,7 +7,7 @@ void Permutation(string str,int i){
     if(i == str.length() - 1){
         cout<<str<<"\n";
         return;
-    }
+    }      
 
     unordered_set<int> s;
     for(int j = i;j<str.length();j++){
