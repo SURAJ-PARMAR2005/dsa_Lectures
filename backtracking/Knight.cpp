@@ -49,4 +49,4 @@ void knightTour(int n, int i,int j){
 int main() {
     knightTour(5,0,0);
     return 0;
-}
+}     
