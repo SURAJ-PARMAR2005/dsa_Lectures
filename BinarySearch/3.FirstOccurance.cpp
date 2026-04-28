@@ -10,7 +10,7 @@ int fo(int n,int arr[],int x){
                 hi = mid-1;
             }
             else return mid;
-        }
+        }   
         else if(arr[mid] <x) lo = mid+1;
         else hi = mid-1;
     }
