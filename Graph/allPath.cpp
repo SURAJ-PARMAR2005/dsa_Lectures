@@ -53,6 +53,6 @@ int main() {
     }
     int x , y;
     cin>> x>> y;
-    allPath(x,y);
+     allPath(x,y);
 
 }
