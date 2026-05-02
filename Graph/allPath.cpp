@@ -4,6 +4,7 @@
 #include<unordered_set>
 using namespace std;
 
+vector<vector<int> > result;
 vector<list<int> > graph;
 unordered_set<int> visited;
 int v;
@@ -14,22 +15,29 @@ void add_edge(int src, int dest ,  bool bi_dir = true){
     }
 }
 
-bool dfs(int curr , int end ){
-    if(curr == end) return true;
+void dfs(int curr , int end , vector<int> & path ){
+    if(curr == end){
+        path.push_back(curr);
+        result.push_back(path);
+        path.pop_back();
+        return;
+    }
     visited.insert(curr);
+    path.push_back(curr);
     for(auto neighbour : graph[curr]){
         if(not visited.count(neighbour )){
-            bool result  = dfs(neighbour,end);
-            if(result) return true;
+            dfs(neighbour,end,path);
+            
         }
-
     }
-    return false;
+    path.pop_back();
+    visited.erase(curr);
+    return;
 }
 
-bool anyPath(int src, int dest){
+void allPath(int src, int dest){
     vector<int> v;
-    return dfs(src,dest);
+    dfs(src,dest,v);
 }
 
 int main() {
@@ -45,6 +53,6 @@ int main() {
     }
     int x , y;
     cin>> x>> y;
-    cout<<anyPath(x,y);
+    allPath(x,y);
 
 }
