@@ -51,7 +51,7 @@ int main() {
         cin>>s>>d;
         add_edge(s,d);
     }
-    int x , y;
+    int x , y;    
     cin>> x>> y;
      allPath(x,y);
      cout<<result.size()<<endl;
