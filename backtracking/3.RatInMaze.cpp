@@ -12,7 +12,7 @@ void f(vector<vector<int>> & grid,int n, int i,int j){
         ans ++;
         return;
     }
-
+      
     grid[i][j] = 2; //means visited
     // left;
     if(canWeGo(n,i,j-1,grid)){
