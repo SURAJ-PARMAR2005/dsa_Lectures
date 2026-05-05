@@ -1,3 +1,6 @@
+#include<iostream>
+#include<vector>
+using namespace std;
 class Solution {
 public:
         //this func will do dfs from currRow, currCol, to its neighbours containng intial color 
@@ -24,3 +27,21 @@ public:
         return image;
     }
 };
+
+int main(){
+    int n;
+    cin>>n;
+    int m;
+    cin>>m;
+    vector<vector<int>> image(n,vector<int> (m));
+    int sr;
+    cin>>sr;
+    int sc;
+    cin>>sc;
+    int color;
+    cin>>color;
+    Solution * s = new Solution();
+    s->floodFill(image,sr,sc,color);
+    //print your soln then
+    
+}
