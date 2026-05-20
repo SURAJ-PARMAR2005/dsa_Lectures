@@ -28,7 +28,7 @@ public:
                 mins++;
                 if(not qu.empty()){
                     qu.push({-1,-1});
-                }
+                } 
                 else break;
             }
             else {
