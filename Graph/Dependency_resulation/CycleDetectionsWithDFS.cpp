@@ -29,7 +29,8 @@ void add_edge(int src, int dest ,  bool bi_dir = true){
             return true;
         }
         if( ! vis.count(neighbour)){
-           dfs(neighbour,src,vis);
+          bool res = dfs(neighbour,src,vis);
+          if(res) return true;
         }
     }
 
